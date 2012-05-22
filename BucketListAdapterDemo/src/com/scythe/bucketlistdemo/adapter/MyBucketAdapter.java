@@ -1,6 +1,6 @@
 package com.scythe.bucketlistdemo.adapter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.view.View;
@@ -12,7 +12,7 @@ import com.scythe.bucketlistdemo.R;
 
 public class MyBucketAdapter extends BucketListAdapter<Integer> {
 
-	public MyBucketAdapter(Activity ctx, ArrayList<Integer> elements,
+	public MyBucketAdapter(Activity ctx, List<Integer> elements,
 			Integer bucketSize) {
 		super(ctx, elements, bucketSize);
 	}

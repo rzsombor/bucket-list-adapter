@@ -1,6 +1,5 @@
 package com.scythe.bucket;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -25,25 +24,52 @@ public abstract class BucketListAdapter<T> extends BaseAdapter {
 	protected Activity ctx;
 	protected Integer bucketSize;
 
-	public BucketListAdapter(Activity ctx, ArrayList<T> elements) {
+	/**
+	 * Basic constructor, takes an Activity context and the list of elements.
+	 * Assumes a 1 column view by default.
+	 * 
+	 * @param ctx
+	 *            The Activity context.
+	 * @param elements
+	 *            The list of elements to present.
+	 */
+	public BucketListAdapter(Activity ctx, List<T> elements) {
 		this(ctx, elements, 1);
 	}
 
-	public BucketListAdapter(Activity ctx, ArrayList<T> elements,
-			Integer bucketSize) {
+	/**
+	 * Extended constructor, takes an Activity context, the list of elements and
+	 * the exact number of columns.
+	 * 
+	 * @param ctx
+	 *            The Activity context.
+	 * @param elements
+	 *            The list of elements to present.
+	 * @param bucketSize
+	 *            The exact number of columns.
+	 * 
+	 */
+	public BucketListAdapter(Activity ctx, List<T> elements, Integer bucketSize) {
 		this.elements = elements;
 		this.ctx = ctx;
 		this.bucketSize = bucketSize;
 	}
-	
-	public void enableAutoMeasure(float minBucketElementWidthDip){
+
+	/**
+	 * Calculates the required number of columns based on the actual screen
+	 * width (in DIP) and the given minimum element width (in DIP).
+	 * 
+	 * @param minBucketElementWidthDip
+	 *            The minimum width in DIP of an element.
+	 */
+	public void enableAutoMeasure(float minBucketElementWidthDip) {
 		float screenWidth = getScreenWidthInDip();
-		
-		if(minBucketElementWidthDip >= screenWidth){
+
+		if (minBucketElementWidthDip >= screenWidth) {
 			bucketSize = 1;
 		} else {
-			bucketSize = (int)(screenWidth / minBucketElementWidthDip);
-		}		
+			bucketSize = (int) (screenWidth / minBucketElementWidthDip);
+		}
 	}
 
 	@Override
@@ -63,7 +89,7 @@ public abstract class BucketListAdapter<T> extends BaseAdapter {
 
 	@Override
 	public View getView(int bucketPosition, View convertView, ViewGroup parent) {
-		
+
 		ViewGroup bucket = (ViewGroup) View.inflate(ctx, R.layout.bucket, null);
 
 		for (int i = (bucketPosition * bucketSize); i < ((bucketPosition * bucketSize) + bucketSize); i++) {
@@ -93,7 +119,8 @@ public abstract class BucketListAdapter<T> extends BaseAdapter {
 	 *            The current element for which the View should be constructed
 	 * @return The View that should be presented in the corresponding bucket.
 	 */
-	protected abstract View getBucketElement(int position, T currentElement);
+	protected abstract View getBucketElement(final int position,
+			T currentElement);
 
 	protected float getScreenWidthInDip() {
 		WindowManager wm = ctx.getWindowManager();

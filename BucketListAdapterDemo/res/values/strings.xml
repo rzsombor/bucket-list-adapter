@@ -3,5 +3,7 @@
 
     <string name="title">BucketListAdapter demo</string>
     <string name="app_name">BucketedListAdapterDemo</string>
+    <string name="footer">Hey, I\'m a footer!</string>
+    <string name="header">Hey, I\'m a header!</string>
 
 </resources>

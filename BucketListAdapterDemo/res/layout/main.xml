@@ -9,7 +9,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dip"
         android:gravity="center_horizontal"
-        android:text="@string/title" />
+        android:text="@string/title"
+        android:textSize="26dip"
+        android:textStyle="bold" />
     
     <ListView android:id="@+id/BucketList"
         android:layout_width="fill_parent"
