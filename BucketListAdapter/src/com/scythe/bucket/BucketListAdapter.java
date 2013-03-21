@@ -2,8 +2,6 @@ package com.scythe.bucket;
 
 import java.util.List;
 
-import com.capigami.outofmilk.OutOfMilk;
-
 import android.app.Activity;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -12,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
