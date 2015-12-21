@@ -142,6 +142,8 @@ public abstract class BucketListAdapter<T> extends ArrayAdapter<T> {
                     View currentConvertView = bucketElementFrame.getChildAt(0);
                     if (currentConvertView != null) {
                         currentConvertView.setVisibility(View.GONE);
+                    } else {
+                        bucketElementFrame.addView(current);
                     }
                 }
             } else {
